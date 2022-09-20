@@ -6,6 +6,7 @@ class Complexe:
         try:
             self._a = int(a)
             self._b = int(b)
+            self._c= int(c)
         except ValueError as erreurValeur:
             print("Erreur: {0}, format non conforme".format(erreurValeur))
         else:

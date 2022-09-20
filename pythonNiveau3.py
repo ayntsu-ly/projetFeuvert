@@ -15,17 +15,12 @@ class progressBar(Tk):
         self.labtitre=Label(self,text="CONTROLEUR DE FEU DE CIRCULATION",bg="grey",fg = "yellow",font=('Times-New-Roman',25))
         self.labtitre.place(relx=0.2, rely=0)
         
-       #label nom 
         self.labNom=Label(self,text="CONTROLEUR DE ",bg="grey",fg = "yellow",font=('Times-New-Roman',25))
         self.labNom.place(relx=0.2, rely=0)
         
-            
+        
         self.labColeur=Label(self,text="COULEUR",bg="grey",fg = "white",font=('Times-New-Roman',10))
         self.labColeur.place(relx=0.5, rely=0.30)
-        
-        #delf 
-        self.labC=Label(self,text="COULEUR",bg="grey",fg = "white",font=('Times-New-Roman',10))
-        self.labC.place(relx=0.5, rely=0.30)
         
         self.labColeur=Label(self,text="VITESSE",bg="grey",fg = "white",font=('Times-New-Roman',10))
         self.labColeur.place(relx=0.61, rely=0.30)

@@ -19,7 +19,7 @@ class progressBar(Tk):
         self.labNom=Label(self,text="CONTROLEUR DE ",bg="grey",fg = "yellow",font=('Times-New-Roman',25))
         self.labNom.place(relx=0.2, rely=0)
         
-        
+            
         self.labColeur=Label(self,text="COULEUR",bg="grey",fg = "white",font=('Times-New-Roman',10))
         self.labColeur.place(relx=0.5, rely=0.30)
         

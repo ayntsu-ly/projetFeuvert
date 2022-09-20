@@ -9,6 +9,7 @@ class Complexe:
             self._c= int(c)
         except ValueError as erreurValeur:
             print("Erreur: {0}, format non conforme".format(erreurValeur))
+            print("Erreur: {1}, format non".format(erreurValeur))
         else:
             if self._a == 0 and self._b == 0:
               print("ERREUR! Aucun traitement car la partie imaginaire et réelle vaut: 0")

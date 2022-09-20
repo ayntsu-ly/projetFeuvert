@@ -23,6 +23,10 @@ class progressBar(Tk):
         self.labColeur=Label(self,text="COULEUR",bg="grey",fg = "white",font=('Times-New-Roman',10))
         self.labColeur.place(relx=0.5, rely=0.30)
         
+        #delf 
+        self.labC=Label(self,text="COULEUR",bg="grey",fg = "white",font=('Times-New-Roman',10))
+        self.labC.place(relx=0.5, rely=0.30)
+        
         self.labColeur=Label(self,text="VITESSE",bg="grey",fg = "white",font=('Times-New-Roman',10))
         self.labColeur.place(relx=0.61, rely=0.30)
         

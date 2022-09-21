@@ -9,14 +9,15 @@ canvas = Canvas(window , height=800 , width=700 , bg="grey")
 canvas.grid(row=0 , column=0)
 
 #label Feu de circulation
-labtitre = Label(window , text="feu de circulation", bg="grey",fg = "yellow",font=('Times-New-Roman',25))
-labtitre.place(x=200 , y=20)
+labTitre = Label(window , text="feu de circulation", bg="grey",fg = "yellow",font=('Times-New-Roman',25))
+labTitre.place(x=200 , y=20)
 
 
 #creation de l'oval
 red= StringVar()
 yellow= StringVar()
 green = StringVar()
+
 red = canvas.create_oval(60,80,120,140, fill="black")
 yellow = canvas.create_oval(60,160,120,220, fill="black")
 green = canvas.create_oval(60,240,120,300, fill="black")
@@ -46,35 +47,40 @@ Button(window, text="PASSER AU NIVEAU3" , bg="yellow",fg = "black", command=lamb
 
 
 #Creation d'option : automatique ou manuel
-j = StringVar()
-labOption = Label(window , text=' Option :', bg="grey",fg = "white",font=('Times-New-Roman',15))
-labOption.place(x=200 , y=110)
-auto = Radiobutton(window , text='Automatique' , bg="grey", variable=j , value='auto' , command=lambda: getValue(j.get()))
-auto.place(x=300 , y=120)
-manuel = Radiobutton(window, text="Manuelle", bg="grey", variable=j , value="manuel" ,  command=lambda: getValue(j.get()))
-manuel.place(x=300 , y=140)
+option= StringVar()
+lab_Option = Label(window , text=' Option :', bg="grey",fg = "white",font=('Times-New-Roman',15))
+lab_Option.place(x=200 , y=110)
+radioButton_Automatique = Radiobutton(window , text='Automatique' , bg="grey", variable=option , value='auto' , command=lambda: getValue(option.get()))
+radioButton_Automatique.place(x=300 , y=120)
+radioButton_Manuel = Radiobutton(window, text="Manuelle", bg="grey", variable=option , value="manuel" ,  command=lambda: getValue(option.get()))
+radioButton_Manuel.place(x=300 , y=140)
 
 
 
 #Creation  choix de vitesse : tres lent ,lent,  normal, rapide ou tres rapide
 vitesse= StringVar()
-labVitesse = Label(window , text=' Vitesse :', bg="grey",fg = "white",font=('Times-New-Roman',15))
-labVitesse.place(x=200 , y=220)
-#très lent
-trLent = Radiobutton(window , text='très lent' , bg="grey", variable=vitesse , value='trLent' ,font=('Times-New-Roman',10),command=lambda: getValue(vitesse.get()))
-trLent.place(x=400 , y=250)
-#lent
-lent = Radiobutton(window , text='lent', bg="grey" , variable=vitesse , value='Lent' ,font=('Times-New-Roman',10), command=lambda: getValue(vitesse.get()))
-lent.place(x=300 , y=250)
-#normal
-normal = Radiobutton(window , text='normal', bg="grey" , variable=vitesse , value='normal' , font=('Times-New-Roman',10), command=lambda: getValue(vitesse.get()))
-normal.place(x=300 , y=290)
-#rapide 
-rapide = Radiobutton(window , text='rapide' , bg="grey", variable=vitesse , value='rapide' , font=('Times-New-Roman',10),command=lambda: getValue(vitesse.get()))
-rapide.place(x=300 , y=270)
-#très rapide
-trRapide = Radiobutton(window , text='très rapide', bg="grey" , variable=vitesse , value='très rapide' ,font=('Times-New-Roman',10), command=lambda: getValue(vitesse.get()))
-trRapide.place(x=400 , y=270)
+lab_Vitesse = Label(window , text=' Vitesse :', bg="grey",fg = "white",font=('Times-New-Roman',15))
+lab_Vitesse.place(x=200 , y=220)
+
+# vitesse très lent
+radioButtonTresLent = Radiobutton(window , text='très lent' , bg="grey", variable=vitesse , value='trLent' ,font=('Times-New-Roman',10),command=lambda: getValue(vitesse.get()))
+radioButtonTresLent.place(x=400 , y=250)
+
+#vitesse lent
+radioButton_Lent = Radiobutton(window , text='lent', bg="grey" , variable=vitesse , value='Lent' ,font=('Times-New-Roman',10), command=lambda: getValue(vitesse.get()))
+radioButton_Lent.place(x=300 , y=250)
+
+# vitesse normal
+radioButton_Normal = Radiobutton(window , text='normal', bg="grey" , variable=vitesse , value='normal' , font=('Times-New-Roman',10), command=lambda: getValue(vitesse.get()))
+radioButton_Normal.place(x=300 , y=290)
+
+#vitesse rapide 
+radioButton_Rapide = Radiobutton(window , text='rapide' , bg="grey", variable=vitesse , value='rapide' , font=('Times-New-Roman',10),command=lambda: getValue(vitesse.get()))
+radioButton_Rapide.place(x=300 , y=270)
+
+# vitesse très rapide
+radioButton_TresRapide = Radiobutton(window , text='très rapide', bg="grey" , variable=vitesse , value='très rapide' ,font=('Times-New-Roman',10), command=lambda: getValue(vitesse.get()))
+radioButton_TresRapide.place(x=400 , y=270)
 
 
 
@@ -116,8 +122,7 @@ def precedent():
         canvas.itemconfigure(green, fill="black") 
         
  
- #fonction tres rapide       
-def tresRapide():
+def fonction_Rapide_lent_tresRapide_tresLent():
     if canvas.itemcget(red,'fill') == 'red':
         canvas.itemconfigure(red, fill="black")
         canvas.itemconfigure(yellow, fill="yellow")
@@ -132,28 +137,31 @@ def tresRapide():
         canvas.itemconfigure(red, fill="red")
         canvas.itemconfigure(yellow, fill="black")
         canvas.itemconfigure(green, fill="black")     
-     
-    window.after(800,tresRapide)
+      
+ 
+ 
+ #fonction tres rapide       
+def tres_Rapide():
+    fonction_Rapide_lent_tresRapide_tresLent 
+    window.after(800,tres_Rapide)
 
 #fonction rapide 
 def Rapide():
-    if canvas.itemcget(red,'fill') == 'red':
-        canvas.itemconfigure(red, fill="black")
-        canvas.itemconfigure(yellow, fill="yellow")
-        canvas.itemconfigure(green, fill="black")
-        
-    elif  canvas.itemcget(yellow,'fill') == 'yellow':
-        canvas.itemconfigure(red, fill="black")
-        canvas.itemconfigure(yellow, fill="black")
-        canvas.itemconfigure(green, fill="green")   
-    
-  
-    elif  canvas.itemcget(green,'fill') == 'green':
-        canvas.itemconfigure(red, fill="red")
-        canvas.itemconfigure(yellow, fill="black")
-        canvas.itemconfigure(green, fill="black")       
-            
+    fonction_Rapide_lent_tresRapide_tresLent
     window.after(300,Rapide)
+    
+#fonction lent    
+def Lent():
+    fonction_Rapide_lent_tresRapide_tresLent  
+    window.after(5000,Lent)     
+    
+          
+ #fonction tres lent   
+def tres_Lent():
+    fonction_Rapide_lent_tresRapide_tresLent 
+    window.after(10000,tres_Lent)     
+ 
+    
     
 #fonction normal
 def normal():
@@ -174,61 +182,25 @@ def normal():
         
     window.after(2000,normal)     
     
-#fonction lent    
-def Lent():
-    if canvas.itemcget(red,'fill') == 'red':
-        canvas.itemconfigure(red, fill="black")
-        canvas.itemconfigure(yellow, fill="yellow")
-        canvas.itemconfigure(green, fill="black")
-        
-    elif  canvas.itemcget(yellow,'fill') == 'yellow':
-        canvas.itemconfigure(red, fill="black")
-        canvas.itemconfigure(yellow, fill="black")
-        canvas.itemconfigure(green, fill="green")   
-  
-    elif  canvas.itemcget(green,'fill') == 'green':
-        canvas.itemconfigure(red, fill="red")
-        canvas.itemconfigure(yellow, fill="black")
-        canvas.itemconfigure(green, fill="black")  
-        
-    window.after(5000,Lent)     
-    
-          
- #fonction tres lent   
-def tresLent():
-    if canvas.itemcget(red,'fill') == 'red':
-        canvas.itemconfigure(red, fill="black")
-        canvas.itemconfigure(yellow, fill="yellow")
-        canvas.itemconfigure(green, fill="black")
-        
-    elif  canvas.itemcget(yellow,'fill') == 'yellow':
-        canvas.itemconfigure(red, fill="black")
-        canvas.itemconfigure(yellow, fill="black")
-        canvas.itemconfigure(green, fill="green")   
-  
-    elif  canvas.itemcget(green,'fill') == 'green':
-        canvas.itemconfigure(red, fill="red")
-        canvas.itemconfigure(yellow, fill="black")
-        canvas.itemconfigure(green, fill="black")  
-        
-    window.after(10000,tresLent)     
-    
+ 
    
  #fonction quitter   
 def Quitter():
     window.destroy()
     
+    
 #fonction reinitialiser 
 def reset_values():
-    j.set('0')
+    option.set('0')
     vitesse.set('0')
     red.set('0')
     yellow.set('0')
     green.set('0')
     
+    
  #fonction option automatique et manuel  
 def automatique():
-    global choix
+    global choixAuto_Manuel
     if canvas.itemcget(red,'fill') == 'red':
         canvas.itemconfigure(red, fill="black")
         canvas.itemconfigure(yellow, fill="yellow")
@@ -244,13 +216,13 @@ def automatique():
         canvas.itemconfigure(yellow, fill="black")
         canvas.itemconfigure(green, fill="black")  
         
-    choix= window.after(2000,automatique)    
+    choixAuto_Manuel = window.after(2000,automatique)    
     
     
 #fonction d'arret pour passer dans une autre option     
 def stop():
-    global choix
-    window.after_cancel(choix)
+    global choixAuto_Manuel
+    window.after_cancel(choixAuto_Manuel)
     
 def getValue(a):
     if a == 'auto':
@@ -263,7 +235,7 @@ def getVitesse(vt):
     a = 'wxx'
     getValue(a)
     if vt == 'trlent':
-        tresLent()
+        tres_Lent()
     elif vt == 'lent':
         Lent()
     elif vt == 'normal':
@@ -271,7 +243,7 @@ def getVitesse(vt):
     elif vt == 'rapide':
         Rapide()
     elif vt == 'tresrapide':
-        tresRapide()   
+        tres_Rapide()   
         
         
 

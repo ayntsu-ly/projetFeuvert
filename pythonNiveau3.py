@@ -12,24 +12,21 @@ class progressBar(Tk):
     def __init__(self):
         Tk.__init__(self)
         
-        self.labtitre=Label(self,text="CONTROLEUR DE FEU DE CIRCULATION",bg="grey",fg = "yellow",font=('Times-New-Roman',25))
-        self.labtitre.place(relx=0.2, rely=0)
-        
-        self.labNom=Label(self,text="CONTROLEUR DE ",bg="grey",fg = "yellow",font=('Times-New-Roman',25))
-        self.labNom.place(relx=0.2, rely=0)
+        self.lab_titre=Label(self,text="CONTROLEUR DE FEU DE CIRCULATION",bg="grey",fg = "yellow",font=('Times-New-Roman',25))
+        self.lab_titre.place(relx=0.2, rely=0)
         
         
-        self.labColeur=Label(self,text="COULEUR",bg="grey",fg = "white",font=('Times-New-Roman',10))
-        self.labColeur.place(relx=0.5, rely=0.30)
+        self.lab_Coleur=Label(self,text="COULEUR",bg="grey",fg = "white",font=('Times-New-Roman',10))
+        self.lab_Coleur.place(relx=0.5, rely=0.30)
         
-        self.labColeur=Label(self,text="VITESSE",bg="grey",fg = "white",font=('Times-New-Roman',10))
-        self.labColeur.place(relx=0.61, rely=0.30)
+        self.lab_Coleur_Vitesse=Label(self,text="VITESSE",bg="grey",fg = "white",font=('Times-New-Roman',10))
+        self.lab_Coleur_Vitesse.place(relx=0.61, rely=0.30)
         
-        self.labColeur=Label(self,text="DUREE",bg="grey",fg = "white",font=('Times-New-Roman',10))
-        self.labColeur.place(relx=0.8, rely=0.30)
+        self.lab_Coleur_Duree=Label(self,text="DUREE",bg="grey",fg = "white",font=('Times-New-Roman',10))
+        self.lab_Coleur_Duree.place(relx=0.8, rely=0.30)
         
-        self.labColeur=Label(self,text="FEU TRICOLOR",bg="grey",fg = "white",font=('Times-New-Roman',10))
-        self.labColeur.place(relx=0.10, rely=0.30)
+        self.lab_Coleur=Label(self,text="FEU TRICOLOR",bg="grey",fg = "white",font=('Times-New-Roman',10))
+        self.lab_Coleur.place(relx=0.10, rely=0.30)
         
         
         self.coleur = "red"
@@ -65,7 +62,7 @@ class progressBar(Tk):
     
         self.changer()
         
-        
+       #button QUITTER ET PASSER DANS  UNE AUTRE NIVEAU 1et 2 
         Button(self, text="QUITTER", bg="red",font = ("Helvatica", 10), command=lambda: app.quit()).place(x=600 , y=500)
         def niveau3():
             self.destroy()
